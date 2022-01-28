@@ -28,7 +28,7 @@ typedef struct queue {
 
 QUEUE* createQueue(void);
 void appendToQueue(QueueEntry, QUEUE* queue);
-void removeFromQueue(QueueEntry, QUEUE* queue);
+int removeFromQueue(QueueEntry, QUEUE* queue);
 bool queueEmpty(QUEUE* queue);
 bool queueFull(QUEUE* queue);
 int queueSize(QUEUE* queue);

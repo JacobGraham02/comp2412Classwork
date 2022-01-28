@@ -54,13 +54,14 @@ void appendToQueue(QueueEntry queueEntry, QUEUE* queue) {
  * This is because if you try to add an element to slot 9, and the array is of size 9, 9 modulus 9 will yield 0, thus looping around to the rear of array
  * A boundary check is used to see if the queue has any elements inside it before attempting to remove any. 
  */
-void removeFromQueue(QueueEntry queueEntry, QUEUE* queue) {
+int removeFromQueue(QueueEntry queueEntry, QUEUE* queue) {
     if (queueEmpty(queue)) {
         return;
     }
     queue->count--;
     queueEntry = queue->entry[queue->front];
     queue->front = (queue->front+1) % MAXQUEUESIZE;
+    return queueEntry;
 }
 /**
  * 

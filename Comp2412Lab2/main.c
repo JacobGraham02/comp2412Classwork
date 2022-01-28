@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
     QueueEntry queueEntry;
     QueueEntry removeQueueEntry;
     int sizeOfQueue;
-    int arrayOfQueueIntegers;
+    int removedQueueInteger;
     
     queue = createQueue();
 
@@ -46,6 +46,13 @@ int main(int argc, char** argv) {
     }
 
     sizeOfQueue = queueSize(queue);
-    printf("Size of queue after removing all even number from queue: %d\n", sizeOfQueue);
+    printf("Size of queue after removing all even numbers from queue: %d\n", sizeOfQueue);
+    
+    for (int i = 0; i < 8; i++) {
+        removedQueueInteger = removeFromQueue(i, queue);
+        printf("Integer that was removed in the queue: %d\n", removedQueueInteger);
+    }
+    sizeOfQueue = queueSize(queue);
+    printf("The size of queue after removing all integers from the queue: %d\n", sizeOfQueue);
 }
 
