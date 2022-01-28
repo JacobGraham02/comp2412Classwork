@@ -26,11 +26,12 @@ typedef struct queue {
     QueueEntry entry[MAXQUEUESIZE];
 } QUEUE; 
 
-void createQueue(QUEUE *);
-void Append(QueueEntry, QUEUE*);
-void Serve(QueueEntry *, QUEUE *);
-bool QueueEmpty(QUEUE *);
-bool QueueFull(QUEUE *);
+QUEUE* createQueue(void);
+void appendToQueue(QueueEntry, QUEUE* queue);
+void removeFromQueue(QueueEntry, QUEUE* queue);
+bool queueEmpty(QUEUE* queue);
+bool queueFull(QUEUE* queue);
+int queueSize(QUEUE* queue);
 
 #ifdef __cplusplus
 extern "C" {

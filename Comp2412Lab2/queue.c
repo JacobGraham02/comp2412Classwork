@@ -22,12 +22,13 @@
  * queue->front refers to the front of the queue (opposite of the front) where elements will be removed from the queue.
  * queue->count refers to the number of elements in the queue.
  */
-void createQueue(QUEUE *queue) {
+QUEUE* createQueue(void) {
+    QUEUE* queue;
     queue->front = 0;
     queue->count = 0;
     queue->rear = -1;
+    return queue;
 }
-
 /**
  * 
  * @param queueEntry the user-created typedef variable of type int
@@ -36,8 +37,8 @@ void createQueue(QUEUE *queue) {
  * This is because if you try to add an element to slot 9, and the array is of size 9, 9 modulus 9 will yield 0, thus looping around to the front of array
  * A boundary check is used to see if the queue is full before appending an element to it.
  */
-void appendToQueue(QueueEntry queueEntry, QUEUE *queue) {
-    if (QueueFull(queue)) {
+void appendToQueue(QueueEntry queueEntry, QUEUE* queue) {
+    if (queueFull(queue)) {
         return;
     } else {
         queue->count++;
@@ -53,29 +54,28 @@ void appendToQueue(QueueEntry queueEntry, QUEUE *queue) {
  * This is because if you try to add an element to slot 9, and the array is of size 9, 9 modulus 9 will yield 0, thus looping around to the rear of array
  * A boundary check is used to see if the queue has any elements inside it before attempting to remove any. 
  */
-void removeFromQueue(QueueEntry *queueEntry, QUEUE *queue) {
-    if (QueueEmpty(queue)) {
+void removeFromQueue(QueueEntry queueEntry, QUEUE* queue) {
+    if (queueEmpty(queue)) {
         return;
-    } else {
-        queue->count--;
-        *queueEntry = queue->entry[queue->front];
-        queue->front = (queue->front+1) % MAXQUEUESIZE;
     }
+    queue->count--;
+    queueEntry = queue->entry[queue->front];
+    queue->front = (queue->front+1) % MAXQUEUESIZE;
 }
 /**
  * 
  * @param queue the input queue (LIFO) data structure that is to be implemented using a circular array. 
  * @return if the number of elements in the queue is equal to 0.
  */
-bool QueueEmpty(QUEUE *queue) {
-    return queue->count = 0;
+bool queueEmpty(QUEUE* queue) {
+    return queue->count == 0;
 } 
 /**
  * 
  * @param queue the input queue (LIFO) data structure that is to be implemented using a circular array. 
  * @return if the number of elements in the queue is equal or greater than 15.
  */
-bool QueueFull(QUEUE *queue) {
+bool queueFull(QUEUE* queue) {
     return queue->count >=MAXQUEUESIZE;
 }
 /**
@@ -83,6 +83,6 @@ bool QueueFull(QUEUE *queue) {
  * @param queue the input queue (LIFO) data structure that is to be implemented using a circular array. 
  * @return the actual number of elements inside of the queue.
  */
-int QueueSize(QUEUE *queue) {
+int queueSize(QUEUE* queue) {
     return queue->count;
-}
+}   

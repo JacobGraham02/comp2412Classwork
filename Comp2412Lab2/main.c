@@ -9,15 +9,43 @@
  *
  * Created on January 26, 2022, 10:55 p.m.
  */
-
+#include "queue.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 
 /*
  * 
  */
 int main(int argc, char** argv) {
+    
+    QUEUE* queue;
+    QueueEntry queueEntry;
+    QueueEntry removeQueueEntry;
+    int sizeOfQueue;
+    int arrayOfQueueIntegers;
+    
+    queue = createQueue();
 
-    return (EXIT_SUCCESS);
+    printf("Size of queue before adding numbers 1 through 15: %d\n", sizeOfQueue);
+    for (int i = 0; i < MAXQUEUESIZE; i++) {
+        queueEntry = i;
+        appendToQueue(queueEntry, queue);
+    }
+    sizeOfQueue = queueSize(queue);
+    printf("Size of queue after adding numbers 1 through 15: %d\n", sizeOfQueue);
+    
+    for (int i = 1; i <= MAXQUEUESIZE; i++) {
+        removeQueueEntry = i;
+        if (i % 2 != 0) {
+            removeQueueEntry *= 2;
+            continue;
+        } else {
+            removeFromQueue(removeQueueEntry, queue);
+        }
+    }
+
+    sizeOfQueue = queueSize(queue);
+    printf("Size of queue after removing all even number from queue: %d\n", sizeOfQueue);
 }
 
