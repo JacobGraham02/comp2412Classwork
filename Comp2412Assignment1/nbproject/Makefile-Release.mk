@@ -36,6 +36,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Problem1.o \
+	${OBJECTDIR}/Problem2.o \
+	${OBJECTDIR}/Problem3.o \
 	${OBJECTDIR}/main.o
 
 
@@ -67,6 +69,16 @@ ${OBJECTDIR}/Problem1.o: Problem1.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Problem1.o Problem1.c
+
+${OBJECTDIR}/Problem2.o: Problem2.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Problem2.o Problem2.c
+
+${OBJECTDIR}/Problem3.o: Problem3.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Problem3.o Problem3.c
 
 ${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}
