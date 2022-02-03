@@ -28,7 +28,7 @@ bool pushStack(STACK* stack, int integerData) {
     if (!newPointer) {
         return false;
     }
-    newPointer->integer_data = integerData;
+    newPointer->integerData = integerData;
     newPointer->linkToNode = stack->top;
     stack->top = newPointer;
     (stack->count)++;
@@ -41,7 +41,7 @@ int* popStack(STACK* stack) {
         dataOutputPointer = NULL;
     } else {
         temp = stack->top;
-        dataOutputPointer = stack->top->integer_data;
+        dataOutputPointer = stack->top->integerData;
         stack->top = stack->top->linkToNode;
         free(temp);
         (stack->count)--;
@@ -52,14 +52,14 @@ int* stackTop(STACK* stack) {
     if (stack->count == 0) {
         return NULL;
     } else {
-        return stack->top->integer_data;
+        return stack->top->integerData;
     }
 }
 STACK* destroyStack(STACK* stack) {
     STACK_NODE* temp;
     if (stack) {
         while (stack->top != NULL) {
-            free(stack->top->linkToNode->integer_data);
+            free(stack->top->linkToNode->integerData);
             free(stack->top->linkToNode);
             temp = stack->top;
             stack->top = stack->top->linkToNode;

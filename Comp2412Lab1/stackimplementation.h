@@ -16,7 +16,7 @@
 typedef struct node {
     void* dataPointer;
     struct node* linkToNode;
-    int integer_data;
+    int integerData;
 } STACK_NODE;
 typedef struct {
     int count;
