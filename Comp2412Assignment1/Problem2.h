@@ -14,21 +14,21 @@
 #define PROBLEM2_H
 #include "stdbool.h"
 
-//typedef struct node {
-//    struct node* pointerToNode;
-//    char nodeCharData;
-//} STACK_NODE;
-//typedef struct {
-//    int numberOfItems;
-//    STACK_NODE* topOfStack;
-//} STACK;
-//
-//bool pushStack(STACK* stack, char charData);
-//STACK_NODE* popStack(STACK* stack);
-//void convertIntToHexidecimal(STACK* stack, long int decimalInteger);
-//STACK* createStack(void);
-//int* stackTop(STACK* stack);
-//STACK* destroyStack(STACK* stack);
+typedef struct node {
+    struct node* pointerToNode;
+    char nodeCharData;
+} STACK_NODE;
+typedef struct {
+    int numberOfItems;
+    STACK_NODE* topOfStack;
+} STACK;
+
+bool pushStack(STACK* stack, char charData);
+STACK_NODE* popStack(STACK* stack);
+void convertIntToHexidecimal(STACK* stack, long int decimalInteger);
+STACK* createStack(void);
+int* stackTop(STACK* stack);
+STACK* destroyStack(STACK* stack);
 
 #ifdef __cplusplus
 extern "C" {

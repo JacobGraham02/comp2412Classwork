@@ -15,14 +15,18 @@
 #include "stddef.h"
 #include "stdbool.h"
 
+// Constant defined for the size of stack
 #define MAXSTACKSIZE 10
 
+// Explicitly declared type definitions
 typedef int StackEntryLicensePlateNum;
+// Explicitly declared type definition structure which holds the properties of a stack array 
 typedef struct {
     int top;
-    StackEntryLicensePlateNum entry[MAXSTACKSIZE]; // Able to hold 10 entries in the stack
+    StackEntryLicensePlateNum entry[MAXSTACKSIZE]; // 10 stack entries of type integer which hold the license plates of cars
 } STACK;
 
+// Function signatures
 void pushStack(StackEntryLicensePlateNum, STACK *);
 void popStack(StackEntryLicensePlateNum, STACK *);
 bool stackEmpty(STACK *);

@@ -21,10 +21,12 @@ I think he meant that a message should show how many other cars were moved to re
  */
 
 /**
- * Pushing cars into the stack requires using the pushStack method for each car
- * Popping cars off the stack requires using a loop until we get to the desired car
- * Keep a counter of each iteration of the loop to keep track of how many cars were removed, and store the removed cars in a list
- * After the chosen car was removed, add each item from the list containing the removed cars back to the original list 
+ * When an integer representing the type StackEntryLicensePlateNum is passed as an argument to the function, 
+ * the StackEntryLicensePlateNum (int) is stored in the array which is the underlying data structure for this stack.
+ * Each time a new item is added to the stack, the internal counter is incremented to ensure each array location is utilized and nothing is overwritten.
+ * If the stack is full, the function returns without performing any action. 
+ * @param item StackEntryLicensePlateNum type definition which represents an integer.
+ * @param stack a pointer to a preexisting stack with array implementation.
  */
 void pushStack(StackEntryLicensePlateNum item, STACK *stack) {
     if (stackFull(stack)) {
@@ -33,6 +35,13 @@ void pushStack(StackEntryLicensePlateNum item, STACK *stack) {
         stack->entry[stack->top++]=item;
     }
 }
+/**
+ * When an integer is passed as an argument into this function for StackEntryLicensePlateNum, the top stack element is removed.
+ * In other words, the first array index is set to 0. If the stack is empty, the function returns without performing any action. 
+ * The stack location is decremented after popping an element off the stack to ensure you can access each element in the underlying array.
+ * @param item StackEntryLicensePlateNum type definition which represents an integer.
+ * @param stack a pointer to a preexisting stack with array implementation.
+ */
 void popStack(StackEntryLicensePlateNum item, STACK *stack) {
     if (stackEmpty(stack)) {
         return;
@@ -41,34 +50,29 @@ void popStack(StackEntryLicensePlateNum item, STACK *stack) {
         item = stack->entry[--stack->top];
     }
 }
+/**
+ * Returns if the underlying array has 0 elements within it. In other words, if the array has any values other than 0.
+ * @param stack a pointer to a preexisting stack with array implementation
+ * @return if the array has any non-zero elements
+ */
 bool stackEmpty(STACK *stack) {
     return stack->top <= 0;
 }
+/**
+ * Returns if the underlying array has 10 elements. In other words, if the array has 10 elements which are not 0.
+ * @param stack a pointer to a preexisting stack with array implementation
+ * @return if the array has 10 or more non-zero elements. 
+ */
 bool stackFull(STACK *stack) {
     return stack->top >= MAXSTACKSIZE;
 }
+/**
+ * Initializes a new stack; sets each value in the underlying array to be 0, and sets the top of the stack to be 0 (no elements in stack).
+ * @param stack a pointer to a preexisting stack with array implementation
+ */
 void createStack(STACK *stack) {
     for (int i = 0; i < MAXSTACKSIZE; i++) {
         stack->entry[i] = 0;
     }
     stack->top = 0;
 }
-/**
- * Deallocates all memory locations in the stack, freeing up any memory taken up by the stack nodes, Also deallocates the memory for the stack itself.
- * @param stack a preexisting stack.
- * @return null if the operation to deallocate the entire stack from memory is successful.
- */
-//STACK* destroyStack(STACK* stack) {
-//    STACK_NODE* temp;
-//    if (stack) {
-//        while (stack->topOfStack != NULL) {
-//            free(stack->topOfStack->pointerToNode->nodeCharData);
-//            free(stack->topOfStack->pointerToNode);
-//            temp = stack->topOfStack;
-//            stack->topOfStack = stack->topOfStack->pointerToNode;
-//            free(temp);
-//        }
-//        free(stack);
-//    }
-//    return NULL;
-//}

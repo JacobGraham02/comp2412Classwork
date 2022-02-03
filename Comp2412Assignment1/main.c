@@ -12,36 +12,36 @@
  */
 int main(int argc, char** argv) {
     // Problem 1 variables
-//    int* integerArrayFromFile;
-//    int* reversedIntegerArray;
-//    int reversedArrayLoopCounter;
-//    int sizeOfReversedArray = 9;
+    int* integerArrayFromFile;
+    int* reversedIntegerArray;
+    int reversedArrayLoopCounter;
+    int sizeOfReversedArray = 9;
     
-//    integerArrayFromFile = returnArrayIntegersFromFile("Problem1IntegerList.txt");
-//    
-//    printf("Non-reversed integer array: ");
-//    for (arrayLoopCounter = 0; arrayLoopCounter < sizeOfReversedArray; arrayLoopCounter++) {
-//        printf("%d, ", integerArrayFromFile[arrayLoopCounter]);
-//    }
-//    printf("\n\n");
-//    
-//    reversedIntegerArray = reverseArrayOfIntegers(integerArrayFromFile);
-//
-//    printf("Reversed integer array: ");
-//    for (arrayLoopCounter = 0; arrayLoopCounter < sizeOfReversedArray; arrayLoopCounter++) {
-//        printf("%d, ", reversedIntegerArray[arrayLoopCounter]);
-//    }
+    integerArrayFromFile = returnArrayIntegersFromFile("Problem1IntegerList.txt");
+    
+    printf("Non-reversed integer array: ");
+    for (arrayLoopCounter = 0; arrayLoopCounter < sizeOfReversedArray; arrayLoopCounter++) {
+        printf("%d, ", integerArrayFromFile[arrayLoopCounter]);
+    }
+    printf("\n\n");
+    
+    reversedIntegerArray = reverseArrayOfIntegers(integerArrayFromFile);
+
+    printf("Reversed integer array: ");
+    for (arrayLoopCounter = 0; arrayLoopCounter < sizeOfReversedArray; arrayLoopCounter++) {
+        printf("%d, ", reversedIntegerArray[arrayLoopCounter]);
+    }
     
     // Problem 2 variables
-//    STACK* stackProblem2;
-//    long int problem2DecimalNumber;
-//    int arrayCounterHexadecimal = 1;
-//    int arrayCounter2Hexadecimal;
-//    
-//    printf("Enter any decimal number: ");
-//    scanf("%ld", &problem2DecimalNumber);
-//    
-//    convertIntToHexidecimal(stackProblem2, problem2DecimalNumber);
+    STACK* stackProblem2;
+    long int problem2DecimalNumber;
+    int arrayCounterHexadecimal = 1;
+    int arrayCounter2Hexadecimal;
+    
+    printf("Enter any decimal number: ");
+    scanf("%ld", &problem2DecimalNumber);
+    
+    convertIntToHexidecimal(stackProblem2, problem2DecimalNumber);
    
     // Problem 3 variables
     STACK* stackProblem3OriginalCars;
@@ -61,7 +61,8 @@ int main(int argc, char** argv) {
     do {
         printf("Input one of the following letters:\t"
                 "A: Push a car onto the stack\t"
-                "D: Remove a car from the stack\n");
+                "D: Remove a car from the stack\t"
+                "Z: Quit the application\n");
         
         userInputChar = getc(stdin);
         scanf(" %c",&userInputChar);
@@ -95,8 +96,6 @@ int main(int argc, char** argv) {
             
             printf("\nEnter the license plate number of car you wish to remove from the garage?:  ");
             scanf("%d", &carLicensePlateNumRemoval);
-            
-            carLicensePlateNumRemovalCounter;
 
             // Removing all other cars including the target car
             for (carLicensePlateNumRemovalCounter = 0; carLicensePlateNumRemovalCounter < 10; carLicensePlateNumRemovalCounter++) {
@@ -111,7 +110,7 @@ int main(int argc, char** argv) {
             popStack(carLicensePlateNumRemovalCounter,stackProblem3OriginalCars);
             
             printf("All cars in the garage in the same order as before excluding the target car: ");
-          
+            numberOfCarsMovedFromGarage = 3;
             for (carsExceptTargetCar = 0; carsExceptTargetCar < 10; carsExceptTargetCar++) {
                 if (stackProblem3CarsExceptTarget->entry[carsExceptTargetCar] != 0) {
                     pushStack(stackProblem3CarsExceptTarget->entry[carsExceptTargetCar], stackProblem3OriginalCars);
