@@ -5,8 +5,8 @@
  *      Author: JakeG
  */
 
-#ifndef PROBLEM4_H_
-#define PROBLEM4_H_
+#ifndef PROBLEM5_H_
+#define PROBLEM5_H_
 
 struct Node {
 	Node* right;
@@ -14,12 +14,12 @@ struct Node {
 	int intArray[7];
 };
 
-class Problem4 {
+class Problem5 {
 	Node* root;
 
 public:
-	Problem4();
-	~Problem4();
+	Problem5();
+	~Problem5();
 	void generateArrayOf100RandomIntegers();
 	Node* insert(int[], Node*);
 	Node* makeEmpty(Node*);
@@ -40,4 +40,4 @@ public:
 };
 
 
-#endif /* PROBLEM4_H_ */
+#endif /* PROBLEM5_H_ */
