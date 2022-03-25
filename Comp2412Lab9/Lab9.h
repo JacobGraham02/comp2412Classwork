@@ -13,10 +13,10 @@ class Lab9 {
 public:
 	Lab9();
 	~Lab9();
-	void generateArrayOf5000RandomIntegers0To100000();
+	void generateArrayOf50000RandomIntegers0To100000();
 	void shellSortWithArray(int[]);
 	void bubbleSortWithArray(int[]);
-	int arrayOf5000Integers[5000];
+	int arrayOf50000Integers[50000];
 };
 
 

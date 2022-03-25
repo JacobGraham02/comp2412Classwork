@@ -14,13 +14,13 @@ using namespace std;
 int main() {
 	Lab9 lab9 = Lab9();
 	int* temporaryArrayOf5000Integers;
-	int randomIntegerArray[5000];
+	int randomIntegerArray[50000];
 
-	lab9.generateArrayOf5000RandomIntegers0To100000();
+	lab9.generateArrayOf50000RandomIntegers0To100000();
 
-	temporaryArrayOf5000Integers = lab9.arrayOf5000Integers;
+	temporaryArrayOf5000Integers = lab9.arrayOf50000Integers;
 
-	for (int i = 0; i < 5000; i++) {
+	for (int i = 0; i < 50000; i++) {
 		randomIntegerArray[i] = *(temporaryArrayOf5000Integers + i);
 	}
 
